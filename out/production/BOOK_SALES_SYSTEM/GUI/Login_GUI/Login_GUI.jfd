@@ -1,0 +1,42 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:77:p, par l {seq {comp label2:::p::p, space s:::p, comp password_passwordfield:::p:272:p}, seq {comp label1:::p::p, space s:::p, comp address_textfield:::p:272:p}}, space ::85:x}, seq t {space ::149:x, par l {comp login_button:::p:221:p, comp register_button:::p:221:p, seq l {space :p:16:p, comp label3:::p:198:p}}, space :133:133:p}}"
+			"$verticalGroup": "par l {seq t {space :p:23:p, comp label3:::p:39:p, space u:::p, par b {comp label1::b:p::p, comp address_textfield::b:p::p}, space :p:26:p, par b {comp label2::b:p::p, comp password_passwordfield::b:p::p}, space ::21:x, comp login_button:::p::p, space :::p, comp register_button:::p::p, space :p:28:p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "login_button"
+				"text": "登录"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "register_button"
+				"text": "注册"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "账号："
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "密码："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "address_textfield"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "password_passwordfield"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "欢迎登录图书进存销系统"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 15 )
+			"size": new java.awt.Dimension( 505, 345 )
+		} )
+	}
+}

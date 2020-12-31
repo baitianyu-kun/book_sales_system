@@ -1,0 +1,73 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :p:27:p, par t {comp label1::t:p::p, comp label3::t:p::p, comp label2:::p::p}, space u:::p, par l {comp certificate_ID_textfield:::p:323:p, comp register_pswensure_pswfield:::p:323:p, comp register_password_pswfield::l:::x}, space ::45:x}}"
+					"$verticalGroup": "par l {seq l {par l {seq {space :p:63:p, comp certificate_ID_textfield:::p::p}, seq t {space :p:55:p, comp label1:::p:47:p}}, space s:::p, par b {comp label2::b:p:31:p, comp register_password_pswfield::b:p::p}, space :p:16:p, par b {comp label3::b:p:39:p, comp register_pswensure_pswfield::b:p::p}, space ::26:x}}"
+				} ) {
+					name: "contentPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "身份证号："
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label2"
+						"text": "密         码："
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "确认密码："
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "certificate_ID_textfield"
+					} )
+					add( new FormComponent( "javax.swing.JPasswordField" ) {
+						name: "register_password_pswfield"
+					} )
+					add( new FormComponent( "javax.swing.JPasswordField" ) {
+						name: "register_pswensure_pswfield"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0:1.0, 80, 80"
+					"$rowSpecs": "0"
+					"$hGap": 5
+					"$vGap": 5
+				} ) {
+					name: "buttonBar"
+					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "registe_button"
+						"text": "注册"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 0
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "back_button"
+						"text": "返回"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 2
+						"gridy": 0
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 240, 90 )
+			"size": new java.awt.Dimension( 520, 350 )
+		} )
+	}
+}

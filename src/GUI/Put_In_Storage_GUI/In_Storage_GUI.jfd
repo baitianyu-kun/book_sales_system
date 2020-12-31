@@ -1,0 +1,55 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space :p:15:p, comp label1:::p::p, space :12:12:p, comp instorage_year_combox:::p::p, space :12:12:p, comp instorage_month_combox:::p::p, space :6:6:p, comp instorage_day_combox:::p::p, space :6:6:p, comp instorage_search_button:::p::p, space ::499:x, comp instorage_add_button:::p::p, space s:::p, comp instorage_delete_button:::p::p, space :p:27:p}, seq l {space :::p, comp scrollPane1::::1471:x, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :p:14:p, par c {comp label1::c:p::p, comp instorage_year_combox::c:p::p, comp instorage_month_combox::c:p::p, comp instorage_day_combox::c:p::p, comp instorage_search_button::c:p::p, par b:c {comp instorage_add_button::b:p::p, comp instorage_delete_button::b:p::p}}, space u:::p, comp scrollPane1::::624:x, space :::p}}"
+		} ) {
+			name: "this"
+			addEvent( new FormEvent( "java.awt.event.WindowFocusListener", "windowGainedFocus", "thisWindowGainedFocus", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "选择入库查询日期："
+				"font": new java.awt.Font( "Dialog", 0, 18 )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "instorage_year_combox"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "instorage_month_combox"
+				addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "instorage_month_comboxItemStateChanged", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "instorage_search_button"
+				"text": "查询"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "instorage_search_buttonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "instorage_day_combox"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "instorage_table"
+					"font": new java.awt.Font( "Dialog", 0, 24 )
+					"rowHeight": 30
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "instorage_add_button"
+				"text": "添加入库信息"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "instorage_add_buttonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "instorage_delete_button"
+				"text": "删除入库信息"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "instorage_delete_buttonActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1485, 730 )
+		} )
+	}
+}

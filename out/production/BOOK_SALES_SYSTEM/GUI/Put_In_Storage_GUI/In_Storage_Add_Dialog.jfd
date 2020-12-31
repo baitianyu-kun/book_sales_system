@@ -1,0 +1,85 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {comp label9:::p::p, space ::198:x, comp instorage_add_add_button:::p::p, space u:::p, comp instorage_add_back_button:::p::p, space :p:21:p}, seq {par l {seq {space ::182:x, par l {comp label5::l:p::p, comp label7::l:p::p, comp label8::l:p::p, comp label2::l:p::p, comp label4::l:p::p, seq l {space :1:1:p, par l {comp label3::l:p::p, comp label6::l:p::p}}}, space :p:64:p}, seq l {comp label1:::p::p, space ::128:x}}, par l {comp book_name_tf:::p:225:p, comp publisher_tf:::p:225:p, comp in_storage_time_tf:::p:225:p, comp book_type_tf:::p:225:p, comp book_bar_tf:::p:225:p, comp book_price_tf:::p:225:p, comp book_number_tf::l:p:225:p}, space :p:155:p}}"
+			"$verticalGroup": "par l {seq {space :::p, comp label1:::p:31:p, space u:::p, par t {seq {par b {comp label3::b:p::p, comp book_name_tf::b:p::p}, space :p:12:p, par b {comp label4::b:p::p, comp publisher_tf::b:p::p}, space :p:8:p, par b {comp label5::b:p:29:p, comp book_number_tf::b:p::p}, space :p:10:p, par b {comp label6::b:p::p, comp book_price_tf::b:p::p}, space :p:22:p, comp label7:::p::p}, comp book_bar_tf::t:p::p}, space :p:18:p, par b {comp label8::b:p::p, comp book_type_tf::b:p::p}, space :p:11:p, par b {comp label2::b:p::p, comp in_storage_time_tf::b:p::p}, space ::51:x, par b {comp label9::b:p::p, comp instorage_add_add_button::b:p::p, comp instorage_add_back_button::b:p::p}, space :::p}}"
+		} ) {
+			name: "this"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "请在下方输入图书信息："
+				"font": new java.awt.Font( "Dialog", 0, 20 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "图书名称："
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "出版社名称："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "book_name_tf"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "publisher_tf"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "book_number_tf"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "图书数量："
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "图书单价："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "book_price_tf"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "book_bar_tf"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "条码信息："
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "图书种类："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "book_type_tf"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "instorage_add_add_button"
+				"text": "添加"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "instorage_add_add_buttonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "instorage_add_back_button"
+				"text": "返回"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "instorage_add_back_buttonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "入库时间："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "in_storage_time_tf"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "*入库日期请按照20200510类似格式填写"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 730, 520 )
+		} )
+	}
+}

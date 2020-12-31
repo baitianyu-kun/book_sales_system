@@ -1,0 +1,72 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space :0:482:x, comp label1:::p::p, space u:::p, comp sales_year_combox:::p::p, space :p:12:p, comp sales_month_combox:::p::p, space :::p, comp sales_day_combox:::p::p, space :::p, comp sales_search_button:::p::p, space :p:446:p}, seq t {space :::p, par t {comp scrollPane1::::1476:x, seq {comp label2:::p::p, space :::p, comp now_sale_date_lable:::p:121:p, space :p:33:p, comp label4:::p::p, space u:::p, comp sale_total_lable:::p:122:p, space :p:24:p, comp label7:::p::p, space :::p, comp sale_money_lable:::p:122:p, space :::x, comp sale_add_button:::p::p, space u:::p, comp sale_delete_button:::p::p}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :p:16:p, par b {comp label1::b:p::p, comp sales_year_combox::b:p::p, comp sales_day_combox::b:p::p, comp sales_month_combox::b:p::p, comp sales_search_button::b:p::p}, space :::x, par b {comp sale_delete_button::b:p::p, comp sale_add_button::b:p::p, comp label7::b:p::p, comp sale_money_lable::b:p:28:p, comp label4::b:p::p, comp sale_total_lable::b:p:28:p, comp label2::b:p:31:p, comp now_sale_date_lable::b:p::p}, space u:::p, comp scrollPane1:::p:573:p, space :::p}}"
+		} ) {
+			name: "销售管理界面"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "选择日期："
+				"font": new java.awt.Font( "Dialog", 0, 18 )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "sales_year_combox"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "sales_month_combox"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "sales_day_combox"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "sales_table"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "sales_search_button"
+				"text": "查询"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "当前交易日期："
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "now_sale_date_lable"
+				"text": "text"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "销售总量："
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "sale_total_lable"
+				"text": "text"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "sale_add_button"
+				"text": "添加记录"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "sale_delete_button"
+				"text": "删除记录"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "sale_money_lable"
+				"text": "text"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "销售总额："
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1490, 725 )
+		} )
+	}
+}
