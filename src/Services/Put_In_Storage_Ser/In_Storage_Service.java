@@ -44,8 +44,7 @@ public class In_Storage_Service {
         else return Activity_Status.INSERT_FAILED;
     }
     public ArrayList<Book_Information> In_Storage_Search_Ser(String date){
-        ArrayList<Book_Information> book_informations=in_stor_act_dao_.In_Storage_Search(date);
-        return book_informations;
+        return in_stor_act_dao_.In_Storage_Search(date);
     }
     public int In_Storage_Delete_Ser(String book_bar_code)
     {

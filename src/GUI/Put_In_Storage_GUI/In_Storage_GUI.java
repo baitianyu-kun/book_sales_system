@@ -152,7 +152,6 @@ public class In_Storage_GUI extends JFrame {
         // TODO add your code here
     }
     private void instorage_delete_buttonActionPerformed(ActionEvent e) {//删除信息
-        instorage_table.setRowSelectionInterval(0,0);//默认选中第一行
         String book_bar_seletcted=(String) instorage_table.getValueAt(instorage_table.getSelectedRow(),2);
         if (JOptionPane.showConfirmDialog(this,"确认删除？")==JOptionPane.OK_OPTION)
         { in_storage_service.In_Storage_Delete_Ser(book_bar_seletcted);
