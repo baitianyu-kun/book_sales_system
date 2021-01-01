@@ -11,14 +11,16 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, par l {seq {comp scoolpanel::::1461:x, space :::p}, seq {comp label3:::p::p, space :::p, comp storage_sear_year_com:::p::p, space :::p, comp storage_sear_month_com:::p::p, space :::p, comp storage_sear_day_com:::p::p, space :::p, comp label4:::p::p, space :::p, comp storage_sear_bookname_tef:::p:236:p, space :::p, comp label5:::p::p, space ::330:x, comp button2:::p::p, space :p:27:p}}}}"
-					"$verticalGroup": "par l {seq t {space :::x, par l {comp button2::t:p::p, par b:t {comp label3::b:p::p, comp storage_sear_year_com::b:p::p, comp storage_sear_month_com::b:p::p, comp storage_sear_day_com::b:p::p, comp label4::b:p::p, comp storage_sear_bookname_tef::b:p::p, comp label5::b:p::p}}, space u:::p, comp scoolpanel:::p:571:p, space :::p}}"
+					"$horizontalGroup": "par l {seq l {space :::p, par l {seq {comp scoolpanel::::1461:x, space :::p}, seq {comp label3:::p::p, space :::p, comp storage_sear_year_com:::p::p, space :::p, comp storage_sear_month_com:::p::p, space :::p, comp storage_sear_day_com:::p::p, space :::p, comp label4:::p::p, space :::p, comp storage_sear_bookname_tf:::p:236:p, space :::p, comp label5:::p::p, space ::175:x, comp storage_sear_button:::p::p, space u:::p, comp button1:::p::p, space :p:15:p}}}}"
+					"$verticalGroup": "par l {seq t {space :::x, par l {par b:t {comp button1::b:p::p, comp storage_sear_button::b:p::p}, par b:t {comp label3::b:p::p, comp storage_sear_year_com::b:p::p, comp storage_sear_month_com::b:p::p, comp storage_sear_day_com::b:p::p, comp label4::b:p::p, comp storage_sear_bookname_tf::b:p::p, comp label5::b:p::p}}, space u:::p, comp scoolpanel:::p:571:p, space :::p}}"
 				} ) {
 					name: "storage_search_panel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scoolpanel"
 						add( new FormComponent( "javax.swing.JTable" ) {
-							name: "storage_storage_search_table"
+							name: "storage_search_table"
+							"rowHeight": 30
+							"font": new java.awt.Font( "Dialog", 0, 24 )
 						} )
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
@@ -27,9 +29,11 @@ new FormModel {
 					} )
 					add( new FormComponent( "javax.swing.JComboBox" ) {
 						name: "storage_sear_year_com"
+						addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "storage_sear_year_comItemStateChanged", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JComboBox" ) {
 						name: "storage_sear_month_com"
+						addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "storage_sear_month_comItemStateChanged", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JComboBox" ) {
 						name: "storage_sear_day_com"
@@ -39,28 +43,36 @@ new FormModel {
 						"text": "请输入书名:"
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "storage_sear_bookname_tef"
+						name: "storage_sear_bookname_tf"
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "button2"
+						name: "storage_sear_button"
 						"text": "查询"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "storage_sear_buttonActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label5"
 						"text": "提示：日期和书名均可以单独查询"
 					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "button1"
+						"text": "删除库存"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+					} )
 				}, new FormLayoutConstraints( null ) {
-					"title": "库存查询"
+					"title": "库存管理"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, par l {seq l {comp scrollPane1::::1461:x, space :::p}, seq l {comp label1:::p::p, space :::p, comp storage_type_combox:::p::p, space ::1099:x, comp storage_type_delete_button:::p::p, space :p:14:p}}}}"
-					"$verticalGroup": "par l {seq t {space :::p, par b {comp label1::b:p::p, comp storage_type_combox::b:p::p, comp storage_type_delete_button::b:p::p}, space :p:14:p, comp scrollPane1:::p:565:p, space :::p}}"
+					"$horizontalGroup": "par l {seq l {space :::p, par l {comp scrollPane1::l::1461:x, seq l {comp label1:::p::p, space :::p, comp storage_type_combox:::p::p, space ::1107:x, comp book_type_search_button:::p:112:p}}, space :::p}}"
+					"$verticalGroup": "par l {seq t {space :::p, par b {comp label1::b:p::p, comp storage_type_combox::b:p::p, comp book_type_search_button::b:p::p}, space :p:12:p, comp scrollPane1:::p:565:p, space :::p}}"
 				} ) {
 					name: "storage_type_panel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
 						add( new FormComponent( "javax.swing.JTable" ) {
 							name: "storage_kind_table"
+							"rowHeight": 30
+							"font": new java.awt.Font( "Dialog", 0, 24 )
 						} )
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
@@ -71,21 +83,24 @@ new FormModel {
 						name: "storage_type_combox"
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "storage_type_delete_button"
-						"text": "删除记录"
+						name: "book_type_search_button"
+						"text": "查询"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "book_type_search_buttonActionPerformed", true ) )
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": "图书种类管理"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp scrollPane3::::1461:x, space :::p}, seq l {comp label2:::p::p, space :::p, comp storage_publisher_combox:::p::p, space ::1121:x, comp storage_delete_button:::p::p, space :p:14:p}}}}"
-					"$verticalGroup": "par l {seq t {space :::p, par b {comp label2::b:p::p, comp storage_publisher_combox::b:p::p, comp storage_delete_button::b:p::p}, space ::14:x, comp scrollPane3:::p:565:p, space :::p}}"
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp scrollPane3::::1461:x, space :::p}, seq l {comp label2:::p::p, space :::p, comp storage_publisher_combox:::p::p, space ::1135:x, comp publisher_search_button:::p::p, space :p:14:p}}}}"
+					"$verticalGroup": "par l {seq t {space :::p, par b {comp label2::b:p::p, comp storage_publisher_combox::b:p::p, comp publisher_search_button::b:p::p}, space ::14:x, comp scrollPane3:::p:565:p, space :::p}}"
 				} ) {
 					name: "storage_publisher_panel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane3"
 						add( new FormComponent( "javax.swing.JTable" ) {
 							name: "storage_publisher_table"
+							"font": new java.awt.Font( "Dialog", 0, 24 )
+							"rowHeight": 30
 						} )
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
@@ -96,8 +111,9 @@ new FormModel {
 						name: "storage_publisher_combox"
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "storage_delete_button"
-						"text": "删除记录"
+						name: "publisher_search_button"
+						"text": "查询"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "publisher_search_buttonActionPerformed", true ) )
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": "出版社管理"

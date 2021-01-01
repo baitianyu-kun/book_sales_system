@@ -149,7 +149,6 @@ public class In_Storage_GUI extends JFrame {
                 }
             }
         }
-        // TODO add your code here
     }
     private void instorage_search_buttonActionPerformed(ActionEvent e) {//查询按钮事件//这里把日期处理一下，方便后期查询
         instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(getSelectedDate())));
@@ -168,7 +167,6 @@ public class In_Storage_GUI extends JFrame {
         { in_storage_service.In_Storage_Delete_Ser(book_bar_seletcted);
             Table_init(getSelectedDate()); }
     }
-
     private void instorage_tableMouseClicked(MouseEvent e) {
         instorage_delete_button.setEnabled(true);
     }

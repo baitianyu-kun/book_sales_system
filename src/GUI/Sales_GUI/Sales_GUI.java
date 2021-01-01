@@ -43,10 +43,10 @@ public class Sales_GUI extends JFrame {
         else { day=String.valueOf((int)sales_day_combox.getSelectedItem()); }
         return year+month+day;
     }
-    public void Table_lable_init()
+    public String setNowDate()
     {
-        //设置启动该模块时候的默认选项和表格，即当天的销售信息
-        //用来搞日期候选框的
+        //设置启动该模块时候的默认选项
+        //用来搞默认日期候选框的
         String year= Dates.getLocalYear();
         String month=Dates.getLocalMonth();
         String day=Dates.getLocalDay();
@@ -57,14 +57,7 @@ public class Sales_GUI extends JFrame {
         if (day.charAt(0)=='0')
         { sales_day_combox.setSelectedItem(Integer.parseInt(String.valueOf(day.charAt(1)))); }
         else { sales_day_combox.setSelectedItem(Integer.parseInt(day)); }
-        //初始化默认的table
-        sales_table_model=new Sales_Table_Model(sales_service.Sales_Search_Ser(year+month+day));
-        sale_total_lable.setText(String.valueOf(sales_table_model.return_sum_count()));//界面上的两个lable的数据的初始化
-        sale_money_lable.setText(String.valueOf(sales_table_model.return_sum_price()));
-        sales_table.setModel(sales_table_model);
-
-        sales_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
-        sales_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
+        return year+month+day;
     }
     public void Table_lable_init(String date)//用来返回时候更新数据和界面上的销量和销售额lable
     {
@@ -72,8 +65,6 @@ public class Sales_GUI extends JFrame {
         sale_total_lable.setText(String.valueOf(sales_table_model.return_sum_count()));//界面上的两个lable的数据的初始化
         sale_money_lable.setText(String.valueOf(sales_table_model.return_sum_price()));
         sales_table.setModel(sales_table_model);
-        //sales_table.setModel(new Sales_Table_Model(sales_service.Sales_Search_Ser(date)));
-
         sales_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
         sales_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
@@ -87,7 +78,7 @@ public class Sales_GUI extends JFrame {
         {
             sales_month_combox.addItem(i);
         }
-        Table_lable_init();
+        Table_lable_init(setNowDate());
         Button_init();
         setVisible(true);
         setDefaultCloseOperation(3);
@@ -182,7 +173,6 @@ public class Sales_GUI extends JFrame {
     private void thisWindowGainedFocus(WindowEvent e) {
         Table_lable_init(getSelectedDate());
     }
-
     private void sales_tableMouseClicked(MouseEvent e) {
         sale_delete_button.setEnabled(true);
     }
