@@ -18,20 +18,28 @@ import java.security.PublicKey;
 /**
  * @author 2
  */
-public class Sales_Add_GUI extends JDialog {
+public class Sales_Add_Dialog extends JDialog {
     private Sales_Service sales_service=new Sales_Service();
-    public Sales_Add_GUI(Window owner) {
+    public Sales_Add_Dialog(Window owner) {
         super(owner);
         initComponents();
     }
 
+    //单元测试
+    /*public static void main(String[] args) {
+        new Sales_Add_Dialog(null).setVisible(true);
+    }*/
+
     public void Table_init()
     {
-
+        sale_add_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        sale_add_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
     public void Table_init(String book_name)
     {
         sale_add_table.setModel(new Sales_Add_Table_Model(sales_service.Sales_Add_Search_Info(book_name)));
+        sale_add_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        sale_add_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
     private void sale_add_search_buttonActionPerformed(ActionEvent e) {
         Table_init(sale_add_name_tf.getText());//点击查询按钮之后初始化表格
@@ -41,6 +49,7 @@ public class Sales_Add_GUI extends JDialog {
         String book_bar_code=(String) sale_add_table.getValueAt(sale_add_table.getSelectedRow(),2);
         String date_input=JOptionPane.showInputDialog(null,"请输入交易日期：");
         int count_input=Integer.parseInt(JOptionPane.showInputDialog(null,"请输入销量："));
+        //System.out.println("count_input="+count_input);
         Sales_Add_Info sales_add_info=new Sales_Add_Info(book_bar_code,count_input,date_input);
         if (sales_service.Sales_Add_Ser(sales_add_info)== Activity_Status.INSERT_SUCCESS)
         {

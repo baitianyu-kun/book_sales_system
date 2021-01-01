@@ -56,9 +56,15 @@ public class In_Storage_GUI extends JFrame {
         else { instorage_day_combox.setSelectedItem(Integer.parseInt(day)); }
         //初始化默认的table
         instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(year+month+day)));
+        instorage_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        instorage_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
     public void Table_init(String date)//重载函数，用来初始化固定日期的table
-    { instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(date))); }
+    {
+        instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(date)));
+        instorage_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        instorage_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
+    }
     public void UI_init()//初始化整个UI
     {
         for (int i=2001;i<=2025;i++)

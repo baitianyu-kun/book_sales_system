@@ -6,7 +6,6 @@ package GUI.Sales_GUI;
 
 import java.awt.event.*;
 
-import Model.In_Storage_Table_Model;
 import Model.Sales_Table_Model;
 import Services.Sales_Ser.Sales_Service;
 import Utils.Dates;
@@ -59,10 +58,20 @@ public class Sales_GUI extends JFrame {
         sale_total_lable.setText(String.valueOf(sales_table_model.return_sum_count()));//界面上的两个lable的数据的初始化
         sale_money_lable.setText(String.valueOf(sales_table_model.return_sum_price()));
         sales_table.setModel(sales_table_model);
+
+        sales_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        sales_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
-    public void Table_lable_init(String date)//用来返回时候更新数据
+    public void Table_lable_init(String date)//用来返回时候更新数据和界面上的销量和销售额lable
     {
-        sales_table.setModel(new Sales_Table_Model(sales_service.Sales_Search_Ser(date)));
+        sales_table_model=new Sales_Table_Model(sales_service.Sales_Search_Ser(date));
+        sale_total_lable.setText(String.valueOf(sales_table_model.return_sum_count()));//界面上的两个lable的数据的初始化
+        sale_money_lable.setText(String.valueOf(sales_table_model.return_sum_price()));
+        sales_table.setModel(sales_table_model);
+        //sales_table.setModel(new Sales_Table_Model(sales_service.Sales_Search_Ser(date)));
+
+        sales_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        sales_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
     public void UI_init()
     {
@@ -161,9 +170,8 @@ public class Sales_GUI extends JFrame {
             Table_lable_init(getSelectedDate());
         }
     }
-
     private void sale_add_buttonActionPerformed(ActionEvent e) {
-        new Sales_Add_GUI(this).setVisible(true);
+        new Sales_Add_Dialog(this).setVisible(true);
         this.setEnabled(false);
     }
     private void thisWindowGainedFocus(WindowEvent e) {

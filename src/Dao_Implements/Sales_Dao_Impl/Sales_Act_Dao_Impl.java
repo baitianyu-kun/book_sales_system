@@ -116,42 +116,67 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
                         //这个是给表中重新添加，即已经存在了的书，总销量应当等于我添加的销量加上以前的销量，所以在给后面添加时候，
                         //我要改变这个对象里的count值，让重新添加的这条数据的总销量和总价钱更新
                     }
+                    //*删除旧数据
                     String sql="delete from Sales_Information where Book_bar_code="+sales_add_info.getBook_bar_code()+";";
                     preparedStatement=connection.prepareStatement(sql);
                     preparedStatement.executeUpdate();
+
+                    String sql1="select Book_Name,Publisher,Book_Bar_code,Unit_Price from Book_Information where Book_Bar_code="+sales_add_info.getBook_bar_code()+";";
+                    PreparedStatement search_book_info_pre=connection.prepareStatement(sql1);
+                    ResultSet search_book_info_res=search_book_info_pre.executeQuery();
+                    String sql2="insert into Sales_Information values(?,?,?,?,?,?,?);";
+                    PreparedStatement insert_sales_info_pre=connection.prepareStatement(sql2);
+                    while (search_book_info_res.next())
+                    {
+                        insert_sales_info_pre.setString(1,sales_add_info.getDate_Of_Transaction());
+                        insert_sales_info_pre.setString(2,search_book_info_res.getString("Book_Name"));
+                        insert_sales_info_pre.setString(3,search_book_info_res.getString("Publisher"));
+                        insert_sales_info_pre.setInt(4,sales_add_info.getCount());
+                        insert_sales_info_pre.setDouble(5,search_book_info_res.getDouble("Unit_Price"));
+                        insert_sales_info_pre.setDouble(6,sales_add_info.getCount()*search_book_info_res.getDouble("Unit_Price"));//单价乘以数量
+                        insert_sales_info_pre.setString(7,sales_add_info.getBook_bar_code());
+                    }
+                    //更新另一个表中的库存数量
+                    String sql3="update Book_Information set Stock=Stock-"+count_old+" where Book_Bar_code="+sales_add_info.getBook_bar_code()+";";
+                    PreparedStatement update_book_info_pre=connection.prepareStatement(sql3);
+                    update_book_info_pre.executeUpdate();
+                    return insert_sales_info_pre.executeUpdate();
                 }catch (SQLException e)
                 {
                     e.printStackTrace();
                     return Activity_Status.INSERT_FAILED;
                 }
             }
-            //加入新的信息，不管存在有相同的书或者不存在相同的书都会添加
-            try {
-                String sql1="select Book_Name,Publisher,Book_Bar_code,Unit_Price from Book_Information where Book_Bar_code="+sales_add_info.getBook_bar_code()+";";
-                PreparedStatement search_book_info_pre=connection.prepareStatement(sql1);
-                ResultSet search_book_info_res=search_book_info_pre.executeQuery();
-                String sql2="insert into Sales_Information values(?,?,?,?,?,?,?);";
-                PreparedStatement insert_sales_info_pre=connection.prepareStatement(sql2);
-                while (search_book_info_res.next())
+            else {
+                //加入新的信息，不管存在有相同的书或者不存在相同的书都会添加
+                try {
+                    String sql1="select Book_Name,Publisher,Book_Bar_code,Unit_Price from Book_Information where Book_Bar_code="+sales_add_info.getBook_bar_code()+";";
+                    PreparedStatement search_book_info_pre=connection.prepareStatement(sql1);
+                    ResultSet search_book_info_res=search_book_info_pre.executeQuery();
+                    String sql2="insert into Sales_Information values(?,?,?,?,?,?,?);";
+                    PreparedStatement insert_sales_info_pre=connection.prepareStatement(sql2);
+                    while (search_book_info_res.next())
+                    {
+                        insert_sales_info_pre.setString(1,sales_add_info.getDate_Of_Transaction());
+                        insert_sales_info_pre.setString(2,search_book_info_res.getString("Book_Name"));
+                        insert_sales_info_pre.setString(3,search_book_info_res.getString("Publisher"));
+                        insert_sales_info_pre.setInt(4,sales_add_info.getCount());
+                        insert_sales_info_pre.setDouble(5,search_book_info_res.getDouble("Unit_Price"));
+                        insert_sales_info_pre.setDouble(6,sales_add_info.getCount()*search_book_info_res.getDouble("Unit_Price"));//单价乘以数量
+                        insert_sales_info_pre.setString(7,sales_add_info.getBook_bar_code());
+                    }
+                    //更新另一个表中的库存数量
+                    String sql3="update Book_Information set Stock=Stock-"+sales_add_info.getCount()+" where Book_Bar_code="+sales_add_info.getBook_bar_code()+";";
+                    PreparedStatement update_book_info_pre=connection.prepareStatement(sql3);
+                    update_book_info_pre.executeUpdate();
+                    return insert_sales_info_pre.executeUpdate();
+                }catch (SQLException e)
                 {
-                    insert_sales_info_pre.setString(1,sales_add_info.getDate_Of_Transaction());
-                    insert_sales_info_pre.setString(2,search_book_info_res.getString("Book_Name"));
-                    insert_sales_info_pre.setString(3,search_book_info_res.getString("Publisher"));
-                    insert_sales_info_pre.setInt(4,sales_add_info.getCount());
-                    insert_sales_info_pre.setDouble(5,search_book_info_res.getDouble("Unit_Price"));
-                    insert_sales_info_pre.setDouble(6,sales_add_info.getCount()*search_book_info_res.getDouble("Unit_Price"));//单价乘以数量
-                    insert_sales_info_pre.setString(7,sales_add_info.getBook_bar_code());
+                    e.printStackTrace();
+                    return Activity_Status.INSERT_FAILED;
                 }
-                //更新另一个表中的库存数量
-                String sql3="update Book_Information set Stock=Stock-"+count_old+" where Book_Bar_code="+sales_add_info.getBook_bar_code()+";";
-                PreparedStatement update_book_info_pre=connection.prepareStatement(sql3);
-                update_book_info_pre.executeUpdate();
-                return insert_sales_info_pre.executeUpdate();
-            }catch (SQLException e)
-            {
-                e.printStackTrace();
-                return Activity_Status.INSERT_FAILED;
             }
+
     }
 
     @Override
