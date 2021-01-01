@@ -26,6 +26,10 @@ public class Sales_GUI extends JFrame {
     public static void main(String[] args) {
         new Sales_GUI().UI_init();
     }
+    public void Button_init()
+    {
+        sale_delete_button.setEnabled(false);
+    }
     public String getSelectedDate()//获取当前combox的内容,处理一下日期方便查询
     {
         String year=String.valueOf(sales_year_combox.getSelectedItem());
@@ -84,6 +88,7 @@ public class Sales_GUI extends JFrame {
             sales_month_combox.addItem(i);
         }
         Table_lable_init();
+        Button_init();
         setVisible(true);
         setDefaultCloseOperation(3);
     }
@@ -177,6 +182,10 @@ public class Sales_GUI extends JFrame {
     private void thisWindowGainedFocus(WindowEvent e) {
         Table_lable_init(getSelectedDate());
     }
+
+    private void sales_tableMouseClicked(MouseEvent e) {
+        sale_delete_button.setEnabled(true);
+    }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel();
@@ -215,6 +224,12 @@ public class Sales_GUI extends JFrame {
             //---- sales_table ----
             sales_table.setRowHeight(30);
             sales_table.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
+            sales_table.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    sales_tableMouseClicked(e);
+                }
+            });
             scrollPane1.setViewportView(sales_table);
         }
 

@@ -26,6 +26,10 @@ public class In_Storage_GUI extends JFrame {
     public static void main(String[] args) {
         new In_Storage_GUI().UI_init();
     }
+    public void Button_init()
+    {
+        instorage_delete_button.setEnabled(false);
+    }
     public String getSelectedDate()//获取当前combox的内容
     {
         String year=String.valueOf(instorage_year_combox.getSelectedItem());
@@ -76,6 +80,7 @@ public class In_Storage_GUI extends JFrame {
             instorage_month_combox.addItem(i);
         }
         Table_init();
+        Button_init();
         setVisible(true);
         setDefaultCloseOperation(3);
     }
@@ -163,6 +168,10 @@ public class In_Storage_GUI extends JFrame {
         { in_storage_service.In_Storage_Delete_Ser(book_bar_seletcted);
             Table_init(getSelectedDate()); }
     }
+
+    private void instorage_tableMouseClicked(MouseEvent e) {
+        instorage_delete_button.setEnabled(true);
+    }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel();
@@ -201,6 +210,12 @@ public class In_Storage_GUI extends JFrame {
             //---- instorage_table ----
             instorage_table.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
             instorage_table.setRowHeight(30);
+            instorage_table.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    instorage_tableMouseClicked(e);
+                }
+            });
             scrollPane1.setViewportView(instorage_table);
         }
 
