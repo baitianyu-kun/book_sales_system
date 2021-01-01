@@ -170,7 +170,7 @@ public class Sales_GUI extends JFrame {
         }
     }
     private void sale_add_buttonActionPerformed(ActionEvent e) {
-        new Sales_Add_Dialog(this).setVisible(true);
+        new Sales_Add_Dialog(this).UI_init();
         this.setEnabled(false);
     }
     private void thisWindowGainedFocus(WindowEvent e) {

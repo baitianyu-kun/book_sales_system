@@ -6,6 +6,7 @@ package GUI.Main_GUI;
 
 import java.awt.event.*;
 
+import GUI.Login_GUI.Login_GUI;
 import GUI.Put_In_Storage_GUI.In_Storage_GUI;
 import GUI.Sales_GUI.Sales_GUI;
 import GUI.Storage_GUI.Storage_GUI;
@@ -19,16 +20,23 @@ import javax.swing.GroupLayout;
  * @author 2
  */
 public class Main_GUI extends JFrame {
+    //public static String User_Name;
     public Main_GUI() {
         initComponents();
     }
 
     public static void main(String[] args) {
-        new Main_GUI().UI_init();
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        new Main_GUI().UI_init("192030411");
     }
 
-    public void UI_init()
+    public void UI_init(String User_Name)
     {
+        login_account_lable.setText(User_Name);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(3);
@@ -43,6 +51,10 @@ public class Main_GUI extends JFrame {
     }
     private void Storage_manage_buttonActionPerformed(ActionEvent e) {
         new Storage_GUI().UI_init();
+    }
+    private void login_out_buttonActionPerformed(ActionEvent e) {
+        this.dispose();
+        new Login_GUI().UI_init();
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -82,7 +94,7 @@ public class Main_GUI extends JFrame {
             Storage_manage_button.addActionListener(e -> Storage_manage_buttonActionPerformed(e));
 
             //---- User_manage_button ----
-            User_manage_button.setText("\u7528\u6237\u7ba1\u7406");
+            User_manage_button.setText("\u7528\u6237\u8bbe\u7f6e");
             User_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
 
             //---- label2 ----
@@ -95,6 +107,7 @@ public class Main_GUI extends JFrame {
 
             //---- login_out_button ----
             login_out_button.setText("\u9000\u51fa\u767b\u5f55");
+            login_out_button.addActionListener(e -> login_out_buttonActionPerformed(e));
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -109,7 +122,7 @@ public class Main_GUI extends JFrame {
                         .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(User_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
                         .addComponent(label2)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(login_account_lable, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)

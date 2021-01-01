@@ -1,7 +1,7 @@
 package Entity;
 
 public class User_Info {
-    private String Account;
+    private String Account;//账号为工号就行吧
     private String Password;
     private String Employee_number;
     private String Login_in_Time;
@@ -11,6 +11,11 @@ public class User_Info {
         Account = account;
         Password = password;
         Employee_number = employee_number;
+    }
+
+    public User_Info(String account, String password) {
+        Account = account;
+        Password = password;
     }
 
     public User_Info() {

@@ -4,17 +4,19 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:77:p, par l {seq {comp label2:::p::p, space s:::p, comp password_passwordfield:::p:272:p}, seq {comp label1:::p::p, space s:::p, comp address_textfield:::p:272:p}}, space ::85:x}, seq t {space ::149:x, par l {comp login_button:::p:221:p, comp register_button:::p:221:p, seq l {space :p:16:p, comp label3:::p:198:p}}, space :133:133:p}}"
-			"$verticalGroup": "par l {seq t {space :p:23:p, comp label3:::p:39:p, space u:::p, par b {comp label1::b:p::p, comp address_textfield::b:p::p}, space :p:26:p, par b {comp label2::b:p::p, comp password_passwordfield::b:p::p}, space ::21:x, comp login_button:::p::p, space :::p, comp register_button:::p::p, space :p:28:p}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:77:p, par l {seq l {comp label1:::p::p, space s:::p, comp address_textfield:::p:272:p}, seq l {comp label2:::p::p, space s:::p, par l:::p {seq {comp login_button:::p:100:p, space :::x, comp register_button:::p:100:p, space :p:41:p}, comp password_textfield:::p:272:p}}, comp label3::t:p::p}}, seq l {space :p:215:p, comp forget_psw_lable:::p::p}}, space ::100:x}}"
+			"$verticalGroup": "par l {seq t {space :p:29:p, comp label3:::p:39:p, space :p:33:p, par b {comp label1::b:p::p, comp address_textfield::b:p::p}, space :p:26:p, par b {comp label2::b:p::p, comp password_textfield::b:p::p}, space ::26:x, par b {comp register_button::b:p::p, comp login_button::b:p::p}, space s:::p, comp forget_psw_lable:::p::p, space :p:33:p}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "login_button"
 				"text": "登录"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "login_buttonActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "register_button"
 				"text": "注册"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "register_buttonActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
@@ -28,15 +30,21 @@ new FormModel {
 				name: "address_textfield"
 			} )
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
-				name: "password_passwordfield"
+				name: "password_textfield"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "欢迎登录图书进存销系统"
+				"font": new java.awt.Font( "Dialog", 0, 26 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "forget_psw_lable"
+				"text": "忘记密码？"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "forget_psw_lableMouseClicked", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 15 )
-			"size": new java.awt.Dimension( 505, 345 )
+			"size": new java.awt.Dimension( 520, 360 )
 		} )
 	}
 }

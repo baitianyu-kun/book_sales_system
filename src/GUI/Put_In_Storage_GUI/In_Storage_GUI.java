@@ -155,12 +155,11 @@ public class In_Storage_GUI extends JFrame {
         instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(getSelectedDate())));
     }
     private void instorage_add_buttonActionPerformed(ActionEvent e) {
-        new In_Storage_Add_Dialog(this).setVisible(true);
+        new In_Storage_Add_Dialog(this).UI_init();
         this.setEnabled(false);
     }
     private void thisWindowGainedFocus(WindowEvent e) {//当添加完成之后返回，然后刷新该页面的table，实现添加后自动刷新
         Table_init(getSelectedDate());
-        // TODO add your code here
     }
     private void instorage_delete_buttonActionPerformed(ActionEvent e) {//删除信息
         String book_bar_seletcted=(String) instorage_table.getValueAt(instorage_table.getSelectedRow(),2);

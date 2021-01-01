@@ -29,7 +29,11 @@ public class Sales_Add_Dialog extends JDialog {
     /*public static void main(String[] args) {
         new Sales_Add_Dialog(null).setVisible(true);
     }*/
-
+    public void UI_init()
+    {
+        setVisible(true);
+        setResizable(false);
+    }
     public void Table_init()
     {
         sale_add_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格

@@ -22,7 +22,11 @@ public class In_Storage_Add_Dialog extends JDialog {
         super(owner);
         initComponents();
     }
-
+    public void UI_init()
+    {
+        setVisible(true);
+        setResizable(false);
+    }
     private void instorage_add_add_buttonActionPerformed(ActionEvent e) {
         Book_Information book_information=new Book_Information();
         book_information.setBook_Name(book_name_tf.getText());
