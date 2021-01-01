@@ -26,6 +26,7 @@ public class Find_Password extends JDialog {
     {
         setVisible(true);
         setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     private void change_btnActionPerformed(ActionEvent e) {
         if (Psw_input_tf.getText().equals(Psw_again_input_tf.getText()))

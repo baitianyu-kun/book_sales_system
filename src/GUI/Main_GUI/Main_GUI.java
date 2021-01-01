@@ -25,14 +25,14 @@ public class Main_GUI extends JFrame {
         initComponents();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
         new Main_GUI().UI_init("192030411");
-    }
+    }*/
 
     public void UI_init(String User_Name)
     {

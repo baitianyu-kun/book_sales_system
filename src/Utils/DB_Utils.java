@@ -9,7 +9,7 @@ public class DB_Utils {
     private static String Local_DBURL="jdbc:mysql://localhost:3306/"+DataBase+"?&serverTimezone=UTC";
     private static String Local_user="root";
     private static String Local_password="123456";
-    private static String Aliyun_DBURL="jdbc:mysql://rm-8vb36l9fo0iv60xor58870dm.mysql.zhangbei.rds.aliyuncs.com/"+Aliyun_DataBase+"?&serverTimezone=UTC";
+    private static String Aliyun_DBURL="jdbc:mysql://rm-8vb36l9fo0iv60xor588707m.mysql.zhangbei.rds.aliyuncs.com/"+Aliyun_DataBase+"?&serverTimezone=UTC";
     private static String Aliyun_user="baitianyu_user";
     private static String Aliyun_password="Bai20010129";
     public static Connection getConnection()
@@ -18,6 +18,7 @@ public class DB_Utils {
         try {
             Class.forName(JDBCDRIVER);
             con= DriverManager.getConnection(Local_DBURL,Local_user,Local_password);
+            //con=DriverManager.getConnection(Aliyun_DBURL,Aliyun_user,Aliyun_password);
         }catch (ClassNotFoundException| SQLException e){
             e.printStackTrace();
         }
