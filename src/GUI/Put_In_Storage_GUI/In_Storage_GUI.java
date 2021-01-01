@@ -23,8 +23,24 @@ public class In_Storage_GUI extends JFrame {
     public In_Storage_GUI() {
         initComponents();
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new In_Storage_GUI().UI_init();
+    }*/
+    public void UI_init()//初始化整个UI
+    {
+        for (int i=2001;i<=2025;i++)
+        {
+            instorage_year_combox.addItem(i);
+        }
+        for (int i=1;i<=12;i++)
+        {
+            instorage_month_combox.addItem(i);
+        }
+        Table_init();
+        Button_init();
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     public void Button_init()
     {
@@ -68,21 +84,6 @@ public class In_Storage_GUI extends JFrame {
         instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(date)));
         instorage_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
         instorage_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
-    }
-    public void UI_init()//初始化整个UI
-    {
-        for (int i=2001;i<=2025;i++)
-        {
-            instorage_year_combox.addItem(i);
-        }
-        for (int i=1;i<=12;i++)
-        {
-            instorage_month_combox.addItem(i);
-        }
-        Table_init();
-        Button_init();
-        setVisible(true);
-        setDefaultCloseOperation(3);
     }
     private void instorage_month_comboxItemStateChanged(ItemEvent e) {
         //*这里用来解决闰年和月份的问题

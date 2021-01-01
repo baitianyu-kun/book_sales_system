@@ -23,8 +23,25 @@ public class Sales_GUI extends JFrame {
     public Sales_GUI() {
         initComponents();
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new Sales_GUI().UI_init();
+    }*/
+    //总初始化
+    public void UI_init()
+    {
+        for (int i=2001;i<=2025;i++)
+        {
+            sales_year_combox.addItem(i);
+        }
+        for (int i=1;i<=12;i++)
+        {
+            sales_month_combox.addItem(i);
+        }
+        Table_lable_init(setNowDate());
+        Button_init();
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     public void Button_init()
     {
@@ -68,21 +85,7 @@ public class Sales_GUI extends JFrame {
         sales_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
         sales_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
-    public void UI_init()
-    {
-        for (int i=2001;i<=2025;i++)
-        {
-            sales_year_combox.addItem(i);
-        }
-        for (int i=1;i<=12;i++)
-        {
-            sales_month_combox.addItem(i);
-        }
-        Table_lable_init(setNowDate());
-        Button_init();
-        setVisible(true);
-        setDefaultCloseOperation(3);
-    }
+
 
     //事件
     private void sales_month_comboxItemStateChanged(ItemEvent e) {

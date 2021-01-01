@@ -28,10 +28,20 @@ public class Storage_GUI extends JFrame {
         initComponents();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new Storage_GUI().UI_init();
-    }
+    }*/
 
+    //总初始化
+    public void UI_init()
+    {
+        Storage_type_panel_init();
+        Storage_publisher_panel_init();
+        Storage_search_panel_init();
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
     public String getSelectedDate()//获取当前combox的内容
     {
         String year=String.valueOf(storage_sear_year_com.getSelectedItem());
@@ -116,14 +126,7 @@ public class Storage_GUI extends JFrame {
             storage_sear_month_com.addItem(i);
         }
     }
-    public void UI_init()
-    {
-        Storage_type_panel_init();
-        Storage_publisher_panel_init();
-        Storage_search_panel_init();
-        setVisible(true);
-        setDefaultCloseOperation(3);
-    }
+
     //事件
     private void book_type_search_buttonActionPerformed(ActionEvent e) {
         Storage_type_table_init((String) storage_type_combox.getSelectedItem());
@@ -281,6 +284,7 @@ public class Storage_GUI extends JFrame {
 
         //======== tabbedPane1 ========
         {
+            tabbedPane1.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
 
             //======== storage_search_panel ========
             {
@@ -364,7 +368,7 @@ public class Storage_GUI extends JFrame {
                                     .addComponent(storage_sear_bookname_tf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label5)))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(scoolpanel, GroupLayout.PREFERRED_SIZE, 571, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scoolpanel, GroupLayout.PREFERRED_SIZE, 566, GroupLayout.PREFERRED_SIZE)
                             .addContainerGap())
                 );
             }
@@ -393,9 +397,9 @@ public class Storage_GUI extends JFrame {
                 storage_type_panel.setLayout(storage_type_panelLayout);
                 storage_type_panelLayout.setHorizontalGroup(
                     storage_type_panelLayout.createParallelGroup()
-                        .addGroup(storage_type_panelLayout.createSequentialGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, storage_type_panelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addGroup(storage_type_panelLayout.createParallelGroup()
+                            .addGroup(storage_type_panelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 1461, Short.MAX_VALUE)
                                 .addGroup(storage_type_panelLayout.createSequentialGroup()
                                     .addComponent(label1)
@@ -414,7 +418,7 @@ public class Storage_GUI extends JFrame {
                                 .addComponent(storage_type_combox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(book_type_search_button))
                             .addGap(12, 12, 12)
-                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 565, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE)
                             .addContainerGap())
                 );
             }
@@ -481,7 +485,7 @@ public class Storage_GUI extends JFrame {
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .addComponent(tabbedPane1, GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                .addComponent(tabbedPane1)
         );
         pack();
         setLocationRelativeTo(getOwner());

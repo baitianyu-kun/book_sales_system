@@ -5,14 +5,15 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {comp tabbedPane1::l:::x}"
-			"$verticalGroup": "par l {comp tabbedPane1::l::669:x}"
+			"$verticalGroup": "par l {comp tabbedPane1::l:::x}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
+				"font": new java.awt.Font( "Dialog", 0, 20 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq l {space :::p, par l {seq {comp scoolpanel::::1461:x, space :::p}, seq {comp label3:::p::p, space :::p, comp storage_sear_year_com:::p::p, space :::p, comp storage_sear_month_com:::p::p, space :::p, comp storage_sear_day_com:::p::p, space :::p, comp label4:::p::p, space :::p, comp storage_sear_bookname_tf:::p:236:p, space :::p, comp label5:::p::p, space ::175:x, comp storage_sear_button:::p::p, space u:::p, comp button1:::p::p, space :p:15:p}}}}"
-					"$verticalGroup": "par l {seq t {space :::x, par l {par b:t {comp button1::b:p::p, comp storage_sear_button::b:p::p}, par b:t {comp label3::b:p::p, comp storage_sear_year_com::b:p::p, comp storage_sear_month_com::b:p::p, comp storage_sear_day_com::b:p::p, comp label4::b:p::p, comp storage_sear_bookname_tf::b:p::p, comp label5::b:p::p}}, space u:::p, comp scoolpanel:::p:571:p, space :::p}}"
+					"$verticalGroup": "par l {seq t {space :::x, par l {par b:t {comp button1::b:p::p, comp storage_sear_button::b:p::p}, par b:t {comp label3::b:p::p, comp storage_sear_year_com::b:p::p, comp storage_sear_month_com::b:p::p, comp storage_sear_day_com::b:p::p, comp label4::b:p::p, comp storage_sear_bookname_tf::b:p::p, comp label5::b:p::p}}, space u:::p, comp scoolpanel:::p:566:p, space :::p}}"
 				} ) {
 					name: "storage_search_panel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -63,8 +64,8 @@ new FormModel {
 					"title": "库存管理"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, par l {comp scrollPane1::l::1461:x, seq l {comp label1:::p::p, space :::p, comp storage_type_combox:::p::p, space ::1107:x, comp book_type_search_button:::p:112:p}}, space :::p}}"
-					"$verticalGroup": "par l {seq t {space :::p, par b {comp label1::b:p::p, comp storage_type_combox::b:p::p, comp book_type_search_button::b:p::p}, space :p:12:p, comp scrollPane1:::p:565:p, space :::p}}"
+					"$horizontalGroup": "par l {seq t {space :::p, par t {comp scrollPane1::::1461:x, seq {comp label1:::p::p, space :::p, comp storage_type_combox:::p::p, space ::1107:x, comp book_type_search_button:::p:112:p}}, space :::p}}"
+					"$verticalGroup": "par l {seq t {space :::p, par b {comp label1::b:p::p, comp storage_type_combox::b:p::p, comp book_type_search_button::b:p::p}, space :p:12:p, comp scrollPane1:::p:567:p, space :::p}}"
 				} ) {
 					name: "storage_type_panel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {

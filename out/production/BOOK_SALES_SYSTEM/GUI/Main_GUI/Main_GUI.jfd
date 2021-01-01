@@ -14,27 +14,30 @@ new FormModel {
 				"font": new java.awt.Font( "Dialog", 3, 48 )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {space :p:22:p, comp ruku_manage_button:::p:149:p, space s:::p, comp xiaoshou_manage_button:::p:149:p, space s:::p, comp kucun_manage_button:::p:149:p, space s:::p, comp yonghu_manage_button:::p:149:p, space ::225:x, comp label2:::p::p, space :::p, comp login_account_lable:::p:183:p, space u:::p, comp login_out_button:::p::p, space :::p}}"
-				"$verticalGroup": "par l {seq {par l {seq {space :p:18:p, par b {comp ruku_manage_button::b:p:157:p, comp xiaoshou_manage_button::b:p:157:p, comp kucun_manage_button::b:p:157:p, comp yonghu_manage_button::b:p:157:p}}, seq l {space :::p, par b {comp label2::b:p::p, comp login_out_button::b:p::p, comp login_account_lable::b:p::p}}}, space ::21:x}}"
+				"$horizontalGroup": "par l {seq l {space :p:22:p, comp InStorage_manage_button:::p:149:p, space s:::p, comp Sales_manage_button:::p:149:p, space s:::p, comp Storage_manage_button:::p:149:p, space s:::p, comp User_manage_button:::p:149:p, space ::225:x, comp label2:::p::p, space :::p, comp login_account_lable:::p:183:p, space u:::p, comp login_out_button:::p::p, space :::p}}"
+				"$verticalGroup": "par l {seq {par l {seq {space :p:18:p, par b {comp InStorage_manage_button::b:p:157:p, comp Sales_manage_button::b:p:157:p, comp Storage_manage_button::b:p:157:p, comp User_manage_button::b:p:157:p}}, seq l {space :::p, par b {comp label2::b:p::p, comp login_out_button::b:p::p, comp login_account_lable::b:p::p}}}, space ::21:x}}"
 			} ) {
 				name: "panel1"
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "ruku_manage_button"
+					name: "InStorage_manage_button"
 					"text": "入库管理"
 					"font": &Font0 new java.awt.Font( "Dialog", 0, 28 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "InStorage_manage_buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "xiaoshou_manage_button"
+					name: "Sales_manage_button"
 					"text": "销售管理"
 					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Sales_manage_buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "kucun_manage_button"
+					name: "Storage_manage_button"
 					"text": "库存管理"
 					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Storage_manage_buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "yonghu_manage_button"
+					name: "User_manage_button"
 					"text": "用户管理"
 					"font": #Font0
 				} )
