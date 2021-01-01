@@ -28,7 +28,7 @@ public class Sales_GUI extends JFrame {
     }
     public void Button_init()
     {
-        sale_delete_button.setEnabled(false);
+        sale_delete_button.setEnabled(false);//防止误触删除按钮
     }
     public String getSelectedDate()//获取当前combox的内容,处理一下日期方便查询
     {

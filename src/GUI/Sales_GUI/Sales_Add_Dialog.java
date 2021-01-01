@@ -57,7 +57,6 @@ public class Sales_Add_Dialog extends JDialog {
         }
         else JOptionPane.showMessageDialog(this,"添加失败！");
     }
-
     private void thisWindowGainedFocus(WindowEvent e) {
         Table_init(sale_add_name_tf.getText());
     }
