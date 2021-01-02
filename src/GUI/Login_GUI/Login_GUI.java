@@ -10,6 +10,7 @@ import Entity.User_Info;
 import GUI.Main_GUI.Main_GUI;
 import GUI.Register_GUI.Register_GUI;
 import Services.Login_Register_Ser.Login_Register_Service;
+import Utils.Dates;
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -19,6 +20,7 @@ import javax.swing.GroupLayout;
  * @author 2
  */
 public class Login_GUI extends JFrame {
+
     private Login_Register_Service login_register_service=new Login_Register_Service();
     public Login_GUI() {
         initComponents();
@@ -38,12 +40,25 @@ public class Login_GUI extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(3);
     }
+    public User_Info User_info_init()//用来记录登录信息
+    {
+        User_Info user_info=new User_Info();
+        user_info.setAccount(address_textfield.getText());
+        user_info.setLogin_in_Time(Dates.getLocalDate_AND_Time());
+        user_info.setLogin_Date(Dates.getLocalDate());
+        if (address_textfield.getText().substring(0,5).equals("admin"))
+            user_info.setIdentity("管理员");
+        else
+            user_info.setIdentity("普通用户");
+
+        return user_info;
+    }
     private void login_buttonActionPerformed(ActionEvent e) {
         if (login_register_service.Login_Ser(new User_Info(address_textfield.getText(),String.valueOf(password_textfield.getPassword())))
         == Activity_Status.LOGIN_SUCCESS)
         {
             JOptionPane.showMessageDialog(this,"登录成功！");
-            new Main_GUI().UI_init(address_textfield.getText());
+            new Main_GUI().UI_init(address_textfield.getText(),User_info_init());//传入用户名和登录信息
             this.dispose();
         }
         else
@@ -54,7 +69,6 @@ public class Login_GUI extends JFrame {
     private void register_buttonActionPerformed(ActionEvent e) {
         new Register_GUI().UI_init();
     }
-
     private void forget_psw_lableMouseClicked(MouseEvent e) {
         new Find_Password_Dialog(this).UI_init();
         this.setEnabled(false);

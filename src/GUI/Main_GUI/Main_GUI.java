@@ -6,12 +6,15 @@ package GUI.Main_GUI;
 
 import java.awt.event.*;
 
+import Entity.User_Info;
 import GUI.Login_GUI.Change_Password_Dialog;
 import GUI.Login_GUI.Login_GUI;
 import GUI.Put_In_Storage_GUI.In_Storage_GUI;
 import GUI.Sales_GUI.Sales_GUI;
 import GUI.Storage_GUI.Storage_GUI;
 import GUI.System_Manage_GUI.System_Manage_GUI;
+import Services.Login_Register_Ser.Login_Register_Service;
+import Utils.Dates;
 import com.sun.tools.javac.Main;
 
 import java.awt.*;
@@ -22,31 +25,34 @@ import javax.swing.GroupLayout;
  * @author 2
  */
 public class Main_GUI extends JFrame {
+    private Login_Register_Service login_register_service=new Login_Register_Service();
     private String User_Name;
+    private User_Info user_info;
+
     public Main_GUI() {
         initComponents();
     }
 
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        new Main_GUI().UI_init("admin192030411");
-    }
-
-    public void UI_init(String User_Name)//传入主界面用户名
+    public void UI_init(String User_Name, User_Info user_info)//传入主界面用户名和登录时候的信息
     {
         this.User_Name=User_Name;
+        this.user_info=user_info;
+        Lable_init();
+        Button_init();
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(3);
+    }
+    public void Lable_init()
+    {
         login_account_lable.setText(User_Name);
+    }
+    public void Button_init()
+    {
         if (User_Name.substring(0,5).equals("admin"))
             System_manage_button.setEnabled(true);
         else
             System_manage_button.setEnabled(false);
-        setVisible(true);
-        setResizable(false);
-        setDefaultCloseOperation(3);
     }
     //事件
     private void InStorage_manage_buttonActionPerformed(ActionEvent e) {
@@ -58,7 +64,9 @@ public class Main_GUI extends JFrame {
     private void Storage_manage_buttonActionPerformed(ActionEvent e) {
         new Storage_GUI().UI_init();
     }
-    private void login_out_buttonActionPerformed(ActionEvent e) {
+    private void login_out_buttonActionPerformed(ActionEvent e) {//按下退出登录时候也记录登录信息
+        user_info.setLogin_out_Time(Dates.getLocalDate_AND_Time());
+        login_register_service.Login_Log_Create_Ser(user_info);
         this.dispose();
         new Login_GUI().UI_init();
     }
@@ -69,6 +77,11 @@ public class Main_GUI extends JFrame {
 
     private void System_manage_buttonActionPerformed(ActionEvent e) {
         new System_Manage_GUI().UI_init();
+    }
+
+    private void thisWindowClosing(WindowEvent e) {//当窗口关闭时候添加登录信息
+        user_info.setLogin_out_Time(Dates.getLocalDate_AND_Time());
+        login_register_service.Login_Log_Create_Ser(user_info);
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -84,6 +97,12 @@ public class Main_GUI extends JFrame {
         System_manage_button = new JButton();
 
         //======== this ========
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                thisWindowClosing(e);
+            }
+        });
         var contentPane = getContentPane();
 
         //---- label1 ----

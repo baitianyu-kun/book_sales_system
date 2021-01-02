@@ -8,6 +8,7 @@ new FormModel {
 			"$verticalGroup": "par l {seq t {space :::p, comp panel1:::p::p, space :p:55:p, comp label1:::p:144:p, space ::263:x}}"
 		} ) {
 			name: "this"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "欢迎使用图书进存销系统"

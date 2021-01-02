@@ -268,12 +268,13 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
     public int Login_Log_Create(User_Info user_info) {
         try {
             connection=DB_Utils.getConnection();
-            String sql="insert into Login_Log values(?,?,?,?);";
+            String sql="insert into Login_Log values(?,?,?,?,?);";
             preparedStatement=connection.prepareStatement(sql);
             preparedStatement.setString(1,user_info.getAccount());
             preparedStatement.setString(2,user_info.getLogin_in_Time());
             preparedStatement.setString(3,user_info.getLogin_out_Time());
             preparedStatement.setString(4,user_info.getIdentity());
+            preparedStatement.setString(5,user_info.getLogin_Date());
             if (preparedStatement.executeUpdate()!=0)
                 return Activity_Status.INSERT_SUCCESS;
             else
