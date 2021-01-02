@@ -1,0 +1,46 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space :0:341:x, comp label1:::p:228:p, space :p:335:p}, seq {par l {seq {space :::p, comp scrollPane1:::p:892:p, space :0:0:x}, seq l {space :p:15:p, comp label2:::p::p, space :::p, comp system_man_year_com:::p::p, space :::p, comp system_man_month_com:::p::p, space :::p, comp system_man_day_com:::p::p, space :::x, comp system_man_search_btn:::p::p}}, space :::x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space :::x, par b {comp label2::b:p::p, comp system_man_year_com::b:p::p, comp system_man_month_com::b:p::p, comp system_man_day_com::b:p::p, comp system_man_search_btn::b:p::p}, space :p:4:p, comp scrollPane1:::p:378:p, space :::p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "系统登录日志"
+				"font": new java.awt.Font( "Dialog", 0, 36 )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "system_manage_table"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "时间："
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "system_man_year_com"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "system_man_month_com"
+				addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "system_man_month_comItemStateChanged", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "system_man_day_com"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "system_man_search_btn"
+				"text": "查询"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "system_man_search_btnActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 905, 525 )
+		} )
+	}
+}

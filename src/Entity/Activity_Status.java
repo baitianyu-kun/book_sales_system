@@ -18,4 +18,10 @@ public class Activity_Status {
     public final static int ACCOUNT_NOT_EXIST=14;
     public final static int CHANGE_SUCCESS=15;
     public final static int CHANGE_FAILED=16;
+    public final static int EQUALS=17;
+    public final static int NOT_EQUALS=18;
+    public final static int ADMIN_USER=19;
+    public final static int ORDINARY_USER=20;
+    public final static int REGISTER_ADMIN_USER_SUCCESS=21;
+    public final static int REGISTER_ADMIN_USER_FAILED=22;
 }

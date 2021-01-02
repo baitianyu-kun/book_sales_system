@@ -4,6 +4,15 @@ public class Find_Password_Info {
     private String Password;
     private String Certifi_ID;
     private String Employee_Number;
+    private String Admin_account;
+
+    public String getAdmin_account() {
+        return Admin_account;
+    }
+
+    public void setAdmin_account(String admin_account) {
+        Admin_account = admin_account;
+    }
 
     public Find_Password_Info() {
     }

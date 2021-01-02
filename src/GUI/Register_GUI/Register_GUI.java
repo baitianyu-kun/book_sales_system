@@ -27,7 +27,7 @@ public class Register_GUI extends JFrame {
     {
         setVisible(true);
         setResizable(false);
-        setDefaultCloseOperation(3);
+        setDefaultCloseOperation(2);
     }
 
     private void registe_buttonActionPerformed(ActionEvent e) {
@@ -40,6 +40,11 @@ public class Register_GUI extends JFrame {
             if (temp== Activity_Status.REGISTER_SUCCESS)
             {
                 JOptionPane.showMessageDialog(this,"注册成功！账号即为员工号！");
+                this.dispose();
+            }
+            else if (temp==Activity_Status.REGISTER_ADMIN_USER_SUCCESS)
+            {
+                JOptionPane.showMessageDialog(this,"注册成功！账号为：“admin+员工号”！");
                 this.dispose();
             }
             else if (temp==Activity_Status.EMPLOYEE_NOT_EXIST)

@@ -38,15 +38,13 @@ public class Login_GUI extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(3);
     }
-
-
-
     private void login_buttonActionPerformed(ActionEvent e) {
         if (login_register_service.Login_Ser(new User_Info(address_textfield.getText(),String.valueOf(password_textfield.getPassword())))
         == Activity_Status.LOGIN_SUCCESS)
         {
             JOptionPane.showMessageDialog(this,"登录成功！");
             new Main_GUI().UI_init(address_textfield.getText());
+            this.dispose();
         }
         else
         {
@@ -58,7 +56,7 @@ public class Login_GUI extends JFrame {
     }
 
     private void forget_psw_lableMouseClicked(MouseEvent e) {
-        new Find_Password(this).UI_init();
+        new Find_Password_Dialog(this).UI_init();
         this.setEnabled(false);
     }
     private void initComponents() {

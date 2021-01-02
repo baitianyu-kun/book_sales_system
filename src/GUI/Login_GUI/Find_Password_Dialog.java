@@ -16,9 +16,9 @@ import javax.swing.GroupLayout;
 /**
  * @author 2
  */
-public class Find_Password extends JDialog {
+public class Find_Password_Dialog extends JDialog {
     private Login_Register_Service login_register_service=new Login_Register_Service();
-    public Find_Password(Window owner) {
+    public Find_Password_Dialog(Window owner) {
         super(owner);
         initComponents();
     }
@@ -29,9 +29,25 @@ public class Find_Password extends JDialog {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     private void change_btnActionPerformed(ActionEvent e) {
+        Find_Password_Info find_password_info=new Find_Password_Info();
+        //new Find_Password_Info(Psw_input_tf.getText(),Certifi_input_tf.getText(),accounts)
         if (Psw_input_tf.getText().equals(Psw_again_input_tf.getText()))
         {
-            int temp=login_register_service.Find_Password_Ser(new Find_Password_Info(Psw_input_tf.getText(),Certifi_input_tf.getText(),Account_input_tf.getText()));
+            String accounts;
+            if (Account_input_tf.getText().substring(0,5).equals("admin"))
+            {
+                accounts=Account_input_tf.getText().substring(5);
+                find_password_info.setAdmin_account(Account_input_tf.getText());//获取管理员的账号
+            }
+            else
+            {
+                accounts=Account_input_tf.getText();
+                find_password_info.setAdmin_account("");//不是管理员时候设置该项为空
+            }
+            find_password_info.setEmployee_Number(accounts);
+            find_password_info.setPassword(Psw_input_tf.getText());
+            find_password_info.setCertifi_ID(Certifi_input_tf.getText());
+            int temp=login_register_service.Find_Password_Ser(find_password_info);
             if (temp== Activity_Status.EMPLOYEE_NOT_EXIST)
                 JOptionPane.showMessageDialog(this,"不存在该人！请重新填写！");
             else if (temp==Activity_Status.CHANGE_SUCCESS)

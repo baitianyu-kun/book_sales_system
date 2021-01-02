@@ -28,6 +28,15 @@ public class In_Storage_GUI extends JFrame {
     }*/
     public void UI_init()//初始化整个UI
     {
+        Combox_init();
+        Table_init();
+        Button_init();
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+    public void Combox_init()
+    {
         for (int i=2001;i<=2025;i++)
         {
             instorage_year_combox.addItem(i);
@@ -36,11 +45,6 @@ public class In_Storage_GUI extends JFrame {
         {
             instorage_month_combox.addItem(i);
         }
-        Table_init();
-        Button_init();
-        setVisible(true);
-        setResizable(false);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     public void Button_init()
     {
@@ -67,6 +71,7 @@ public class In_Storage_GUI extends JFrame {
         String year=Dates.getLocalYear();
         String month=Dates.getLocalMonth();
         String day=Dates.getLocalDay();
+        String date=year+month+day;
         instorage_year_combox.setSelectedItem(Integer.parseInt(year));
         if (month.charAt(0)=='0')
         { instorage_month_combox.setSelectedItem(Integer.parseInt(String.valueOf(month.charAt(1)))); }
@@ -75,7 +80,7 @@ public class In_Storage_GUI extends JFrame {
         { instorage_day_combox.setSelectedItem(Integer.parseInt(String.valueOf(day.charAt(1)))); }
         else { instorage_day_combox.setSelectedItem(Integer.parseInt(day)); }
         //初始化默认的table
-        instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(year+month+day)));
+        instorage_table.setModel(new In_Storage_Table_Model(in_storage_service.In_Storage_Search_Ser(date)));
         instorage_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
         instorage_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
