@@ -57,21 +57,23 @@ public class Sales_Add_Dialog extends JDialog {
         Sales_Add_Info sales_add_info=new Sales_Add_Info(book_bar_code,count_input,date_input);
         if (sales_service.Sales_Add_Ser(sales_add_info)== Activity_Status.INSERT_SUCCESS)
         {
-            JOptionPane.showMessageDialog(this,"添加成功！");
+            JOptionPane.showMessageDialog(null,"添加成功！");
         }
-        else JOptionPane.showMessageDialog(this,"添加失败！");
+        else JOptionPane.showMessageDialog(null,"添加失败！");
     }
     private void thisWindowGainedFocus(WindowEvent e) {
         Table_init(sale_add_name_tf.getText());
     }
     private void thisWindowClosing(WindowEvent e) {
-        this.dispose();
         this.getOwner().setEnabled(true);
+        this.dispose();
+
     }
 
     private void sale_add_back_buttonActionPerformed(ActionEvent e) {
-        this.dispose();
         this.getOwner().setEnabled(true);
+        this.dispose();
+
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents

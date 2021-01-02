@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BOOK_SALES_SYSTEM:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BOOK_SALES_SYSTEM_jar</output-path>
+    <root id="archive" name="BOOK_SALES_SYSTEM.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$USER_HOME$/books_sale_system/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="BOOK_SALES_SYSTEM" />
+      <element id="extracted-dir" path="$USER_HOME$/mysql_connecter_jdbc/mysql-connector-java-8.0.21.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

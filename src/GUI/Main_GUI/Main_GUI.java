@@ -74,11 +74,9 @@ public class Main_GUI extends JFrame {
         new Change_Password_Dialog(this).UI_init(User_Name);
         this.setEnabled(false);
     }
-
     private void System_manage_buttonActionPerformed(ActionEvent e) {
         new System_Manage_GUI().UI_init();
     }
-
     private void thisWindowClosing(WindowEvent e) {//当窗口关闭时候添加登录信息
         user_info.setLogin_out_Time(Dates.getLocalDate_AND_Time());
         login_register_service.Login_Log_Create_Ser(user_info);
@@ -161,7 +159,7 @@ public class Main_GUI extends JFrame {
                         .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label2)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(login_account_lable, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
@@ -203,24 +201,23 @@ public class Main_GUI extends JFrame {
                     .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap())
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addGap(50, 404, Short.MAX_VALUE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(label1, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE)
-                    .addGap(390, 390, 390))
+                    .addGap(280, 280, 280))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(55, 55, 55)
+                    .addGap(18, 18, 18)
                     .addComponent(label1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(263, Short.MAX_VALUE))
+                    .addContainerGap(135, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JLabel label1;
     private JPanel panel1;

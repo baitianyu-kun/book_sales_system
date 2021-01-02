@@ -38,23 +38,24 @@ public class In_Storage_Add_Dialog extends JDialog {
         book_information.setIn_Storage_Time(in_storage_time_tf.getText());
         if (in_storage_service.In_Storage_Add_Ser(book_information)== Activity_Status.INSERT_SUCCESS)
         {
-            JOptionPane.showMessageDialog(this,"添加成功！");
-            this.dispose();
+            JOptionPane.showMessageDialog(null,"添加成功！");
             this.getOwner().setEnabled(true);//用来返回父窗口
+            this.dispose();
         }
         else {
-            JOptionPane.showMessageDialog(this,"添加失败！请检查是否全部输入正确！");
+            JOptionPane.showMessageDialog(null,"添加失败！请检查是否全部输入正确！");
         }
 
     }
 
     private void instorage_add_back_buttonActionPerformed(ActionEvent e) {
-        this.dispose();
         this.getOwner().setEnabled(true);
+        this.dispose();
+
     }
     private void thisWindowClosing(WindowEvent e) {//设置窗口关闭时候返回父窗口
-        this.dispose();
         this.getOwner().setEnabled(true);
+        this.dispose();
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
