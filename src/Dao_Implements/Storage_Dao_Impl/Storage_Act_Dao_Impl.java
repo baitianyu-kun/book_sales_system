@@ -62,8 +62,6 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return book_informations;
     }
@@ -91,8 +89,6 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return book_informations;
     }
@@ -120,8 +116,6 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return book_informations;
     }
@@ -149,8 +143,6 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return book_informations;
     }
@@ -178,8 +170,6 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return book_informations;
     }
@@ -200,9 +190,7 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         {
             e.printStackTrace();
         }
-        finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
-        }
+
         return all_book_types;
     }
 
@@ -222,8 +210,6 @@ public class Storage_Act_Dao_Impl implements Storage_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return all_publisher;
     }

@@ -53,8 +53,6 @@ public class Employee_Manage_Dao_Impl implements Employee_Manage_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return employees_informations;
     }
@@ -73,8 +71,6 @@ public class Employee_Manage_Dao_Impl implements Employee_Manage_Dao {
         {
             e.printStackTrace();
             return Activity_Status.DELETE_FAILED;
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement);
         }
     }
 
@@ -99,8 +95,6 @@ public class Employee_Manage_Dao_Impl implements Employee_Manage_Dao {
         {
             e.printStackTrace();
             return Activity_Status.INSERT_FAILED;
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement);
         }
     }
 
@@ -119,8 +113,6 @@ public class Employee_Manage_Dao_Impl implements Employee_Manage_Dao {
         {
             e.printStackTrace();
             return null;
-        }finally {
-            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
 
     }
