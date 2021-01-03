@@ -39,7 +39,7 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         user_info.setLogin_out_Time(Dates.getLocalDate_AND_Time());
         user_info.setIdentity("管理员");
         System.out.println(new Login_Register_Act_Dao_Impl().Login_Log(user_info));*/
-        /*ArrayList<User_Info>test=new Login_Register_Act_Dao_Impl().User_Info_Display("20210102");
+        /*ArrayList<User_Info>test=new Login_Register_Act_Dao_Impl().User_Info_Display("20210103");
         for (int i=0;i<test.size();i++)
         {
             User_Info user_info=test.get(i);
@@ -288,13 +288,13 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
     public ArrayList<User_Info> User_Info_Display(String date) {
         ArrayList<User_Info>user_infos=new ArrayList<>();
         try {
-            User_Info user_info=new User_Info();
             connection=DB_Utils.getConnection();
             String sql="select * from Login_Log where Login_Date="+date+";";
             preparedStatement= connection.prepareStatement(sql);
             resultSet=preparedStatement.executeQuery();
             while (resultSet.next())
             {
+                User_Info user_info=new User_Info();
                 user_info.setAccount(resultSet.getString("Account"));
                 user_info.setLogin_in_Time(resultSet.getString("Login_in_Time"));
                 user_info.setLogin_out_Time(resultSet.getString("Login_out_Time"));
