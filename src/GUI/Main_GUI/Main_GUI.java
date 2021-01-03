@@ -123,17 +123,17 @@ public class Main_GUI extends JFrame {
 
             //---- InStorage_manage_button ----
             InStorage_manage_button.setText("\u5165\u5e93\u7ba1\u7406");
-            InStorage_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
+            InStorage_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
             InStorage_manage_button.addActionListener(e -> InStorage_manage_buttonActionPerformed(e));
 
             //---- Sales_manage_button ----
             Sales_manage_button.setText("\u9500\u552e\u7ba1\u7406");
-            Sales_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
+            Sales_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
             Sales_manage_button.addActionListener(e -> Sales_manage_buttonActionPerformed(e));
 
             //---- Storage_manage_button ----
             Storage_manage_button.setText("\u5e93\u5b58\u7ba1\u7406");
-            Storage_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
+            Storage_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
             Storage_manage_button.addActionListener(e -> Storage_manage_buttonActionPerformed(e));
 
             //---- label2 ----
@@ -154,12 +154,12 @@ public class Main_GUI extends JFrame {
 
             //---- System_manage_button ----
             System_manage_button.setText("\u7cfb\u7edf\u7ba1\u7406");
-            System_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
+            System_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
             System_manage_button.addActionListener(e -> System_manage_buttonActionPerformed(e));
 
             //---- Employee_manage_button ----
             Employee_manage_button.setText("\u5458\u5de5\u7ba1\u7406");
-            Employee_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
+            Employee_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 24));
             Employee_manage_button.addActionListener(e -> Employee_manage_buttonActionPerformed(e));
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
@@ -168,16 +168,16 @@ public class Main_GUI extends JFrame {
                 panel1Layout.createParallelGroup()
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(InStorage_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Sales_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(InStorage_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Sales_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Employee_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Employee_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(label2)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(login_account_lable, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
@@ -198,20 +198,16 @@ public class Main_GUI extends JFrame {
                                     .addComponent(login_account_lable)
                                     .addComponent(label2))
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(change_psw_button)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(change_psw_button))
                             .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addGroup(panel1Layout.createParallelGroup()
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Employee_manage_button, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(InStorage_manage_button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Sales_manage_button, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(41, 41, 41))
+                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Employee_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Sales_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InStorage_manage_button, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(25, Short.MAX_VALUE))
             );
         }
 
@@ -224,7 +220,7 @@ public class Main_GUI extends JFrame {
                     .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap())
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(308, Short.MAX_VALUE)
+                    .addContainerGap(373, Short.MAX_VALUE)
                     .addComponent(label1, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE)
                     .addGap(306, 306, 306))
         );
@@ -235,7 +231,7 @@ public class Main_GUI extends JFrame {
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(label1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(192, Short.MAX_VALUE))
+                    .addContainerGap(252, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());

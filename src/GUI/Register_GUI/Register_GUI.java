@@ -44,18 +44,18 @@ public class Register_GUI extends JFrame {
             }
             else if (temp==Activity_Status.REGISTER_ADMIN_USER_SUCCESS)
             {
-                JOptionPane.showMessageDialog(this,"注册成功！账号为：“admin+员工号”！");
+                JOptionPane.showMessageDialog(null,"注册成功！账号为：“admin+员工号”！");
                 this.dispose();
             }
             else if (temp==Activity_Status.EMPLOYEE_NOT_EXIST)
-                JOptionPane.showMessageDialog(this,"不存在该员工！请检查员工号信息！");
+                JOptionPane.showMessageDialog(null,"不存在该员工！请检查员工号信息！");
             else if (temp==Activity_Status.ACCOUNT_EXIST)
-                JOptionPane.showMessageDialog(this,"已经注册过了！");
+                JOptionPane.showMessageDialog(null,"已经注册过了！");
             else
-                JOptionPane.showMessageDialog(this,"注册失败！");
+                JOptionPane.showMessageDialog(null,"注册失败！");
         }
         else {
-            JOptionPane.showMessageDialog(this,"两次密码不一致！");
+            JOptionPane.showMessageDialog(null,"两次密码不一致！");
         }
     }
 
