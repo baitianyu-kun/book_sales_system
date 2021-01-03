@@ -69,6 +69,8 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return sales_informations;
     }
@@ -92,6 +94,8 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         if (flag==0)
             return Activity_Status.NOT_HAVE;
@@ -145,6 +149,8 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
                 {
                     e.printStackTrace();
                     return Activity_Status.INSERT_FAILED;
+                }finally {
+                    DB_Utils.closeConn(connection,preparedStatement,resultSet);
                 }
             }
             else {
@@ -174,6 +180,8 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
                 {
                     e.printStackTrace();
                     return Activity_Status.INSERT_FAILED;
+                }finally {
+                    DB_Utils.closeConn(connection,preparedStatement,resultSet);
                 }
             }
 
@@ -190,6 +198,8 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
         {
             e.printStackTrace();
             return Activity_Status.DELETE_FAILED;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement);
         }
     }
 
@@ -215,6 +225,8 @@ public class Sales_Act_Dao_Impl implements Sales_Activity_Dao {
         }catch (SQLException e)
         {
             e.printStackTrace();
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return sales_add_search_infos;
     }

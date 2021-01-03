@@ -29,7 +29,6 @@ public class Main_GUI extends JFrame {
     private Login_Register_Service login_register_service=new Login_Register_Service();
     private String User_Name;
     private User_Info user_info;
-
     public Main_GUI() {
         initComponents();
     }

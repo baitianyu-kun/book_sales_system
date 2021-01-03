@@ -62,6 +62,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         {
             e.printStackTrace();
             return Activity_Status.LOGIN_FAILED;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
     }
     public int Exist_Employee(String Employee_Number)//判断是否存在该员工，存在才可以注册
@@ -79,6 +81,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         {
             e.printStackTrace();
             return Activity_Status.EMPLOYEE_NOT_EXIST;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
     }
     public int Exist_Account(String account)
@@ -96,6 +100,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         {
             e.printStackTrace();
             return Activity_Status.ACCOUNT_NOT_EXIST;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
     }
     public int Account_Equals_Psw(String account,String Psw)//用来判断该账号密码是否与数据库中匹配
@@ -114,6 +120,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         {
             e.printStackTrace();
             return Activity_Status.NOT_EQUALS;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
     }
     public int Judge_Identity(String Employee_Number)
@@ -132,6 +140,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         {
             e.printStackTrace();
             return 9999;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
     }
     @Override
@@ -188,6 +198,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         {
             e.printStackTrace();
             return Activity_Status.REGISTER_FAILED;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
     }
     public int Exist_Employee(String Certificate_ID_Number,String Employee_Number)//判断是否存在该身份证号，并且该身份证号对应的工号是否和输入的相同（因为账号和工号是一样的）
@@ -239,6 +251,9 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
             e.printStackTrace();
             return Activity_Status.CHANGE_FAILED;
         }
+        finally {
+            DB_Utils.closeConn(connection,preparedStatement);
+        }
     }
 
     @Override
@@ -262,6 +277,9 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
             e.printStackTrace();
             return Activity_Status.CHANGE_FAILED;
         }
+        finally {
+            DB_Utils.closeConn(connection,preparedStatement);
+        }
     }
 
     @Override
@@ -282,6 +300,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         }catch (SQLException e) {
             e.printStackTrace();
             return Activity_Status.INSERT_FAILED;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement);
         }
     }
     @Override
@@ -305,6 +325,8 @@ public class Login_Register_Act_Dao_Impl implements Login_Register_Activity_Dao 
         }catch (SQLException e)
         {
             e.printStackTrace();
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
         }
         return user_infos;
     }

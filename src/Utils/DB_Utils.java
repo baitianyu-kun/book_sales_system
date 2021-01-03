@@ -17,8 +17,8 @@ public class DB_Utils {
         Connection con=null;
         try {
             Class.forName(JDBCDRIVER);
-            //con= DriverManager.getConnection(Local_DBURL,Local_user,Local_password);
-            con=DriverManager.getConnection(Aliyun_DBURL,Aliyun_user,Aliyun_password);
+            con= DriverManager.getConnection(Local_DBURL,Local_user,Local_password);
+            //con=DriverManager.getConnection(Aliyun_DBURL,Aliyun_user,Aliyun_password);
         }catch (ClassNotFoundException| SQLException e){
             e.printStackTrace();
         }
@@ -51,7 +51,6 @@ public class DB_Utils {
 
         }
     }
-
     //关闭连接（无结果集）
     public static void closeConn(Connection conn, PreparedStatement stmt) {
         if (stmt != null) {
@@ -71,5 +70,4 @@ public class DB_Utils {
 
         }
     }
-
 }

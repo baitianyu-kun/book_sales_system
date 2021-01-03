@@ -30,6 +30,8 @@ public class In_Stor_Act_Dao_Impl implements In_Storage_Activity_Dao {
         {
             e.printStackTrace();
             return Activity_Status.INSERT_FAILED;
+        }finally {
+            DB_Utils.closeConn(connection,preparedStatement);
         }
     }
     @Override
@@ -56,6 +58,9 @@ public class In_Stor_Act_Dao_Impl implements In_Storage_Activity_Dao {
         {
             e.printStackTrace();
         }
+        finally {
+            DB_Utils.closeConn(connection,preparedStatement,resultSet);
+        }
         return book_informations;
     }
 
@@ -70,6 +75,9 @@ public class In_Stor_Act_Dao_Impl implements In_Storage_Activity_Dao {
         {
             e.printStackTrace();
             return Activity_Status.DELETE_FAILED;
+        }
+        finally {
+            DB_Utils.closeConn(connection,preparedStatement);
         }
     }
 }
