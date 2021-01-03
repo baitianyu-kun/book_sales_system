@@ -7,6 +7,7 @@ package GUI.Main_GUI;
 import java.awt.event.*;
 
 import Entity.User_Info;
+import GUI.Employees_Manage_GUI.Employees_Manage_GUI;
 import GUI.Login_GUI.Change_Password_Dialog;
 import GUI.Login_GUI.Login_GUI;
 import GUI.Put_In_Storage_GUI.In_Storage_GUI;
@@ -50,9 +51,16 @@ public class Main_GUI extends JFrame {
     public void Button_init()
     {
         if (User_Name.substring(0,5).equals("admin"))
+        {
             System_manage_button.setEnabled(true);
+            Employee_manage_button.setEnabled(true);
+        }
         else
+        {
             System_manage_button.setEnabled(false);
+            Employee_manage_button.setEnabled(false);
+        }
+
     }
     //事件
     private void InStorage_manage_buttonActionPerformed(ActionEvent e) {
@@ -81,6 +89,9 @@ public class Main_GUI extends JFrame {
         user_info.setLogin_out_Time(Dates.getLocalDate_AND_Time());
         login_register_service.Login_Log_Create_Ser(user_info);
     }
+    private void Employee_manage_buttonActionPerformed(ActionEvent e) {
+        new Employees_Manage_GUI().UI_init();
+    }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         label1 = new JLabel();
@@ -93,6 +104,7 @@ public class Main_GUI extends JFrame {
         login_out_button = new JButton();
         change_psw_button = new JButton();
         System_manage_button = new JButton();
+        Employee_manage_button = new JButton();
 
         //======== this ========
         addWindowListener(new WindowAdapter() {
@@ -146,23 +158,30 @@ public class Main_GUI extends JFrame {
             System_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
             System_manage_button.addActionListener(e -> System_manage_buttonActionPerformed(e));
 
+            //---- Employee_manage_button ----
+            Employee_manage_button.setText("\u5458\u5de5\u7ba1\u7406");
+            Employee_manage_button.setFont(new Font(Font.DIALOG, Font.PLAIN, 28));
+            Employee_manage_button.addActionListener(e -> Employee_manage_buttonActionPerformed(e));
+
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(InStorage_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Sales_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label2)
+                        .addContainerGap()
+                        .addComponent(InStorage_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(login_account_lable, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Sales_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Employee_manage_button, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(label2)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(login_account_lable, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(change_psw_button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -171,24 +190,29 @@ public class Main_GUI extends JFrame {
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup()
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(InStorage_manage_button, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sales_manage_button, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panel1Layout.createSequentialGroup()
+                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(label2)
                                     .addComponent(login_out_button)
-                                    .addComponent(login_account_lable))
+                                    .addComponent(login_account_lable)
+                                    .addComponent(label2))
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(change_psw_button)))
-                        .addContainerGap(21, Short.MAX_VALUE))
+                                .addComponent(change_psw_button)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(panel1Layout.createParallelGroup()
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                            .addComponent(System_manage_button, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Employee_manage_button, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Storage_manage_button, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(InStorage_manage_button, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Sales_manage_button, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(41, 41, 41))
             );
         }
 
@@ -201,18 +225,18 @@ public class Main_GUI extends JFrame {
                     .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap())
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(308, Short.MAX_VALUE)
                     .addComponent(label1, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE)
-                    .addGap(280, 280, 280))
+                    .addGap(306, 306, 306))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(label1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(135, Short.MAX_VALUE))
+                    .addContainerGap(192, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -229,5 +253,6 @@ public class Main_GUI extends JFrame {
     private JButton login_out_button;
     private JButton change_psw_button;
     private JButton System_manage_button;
+    private JButton Employee_manage_button;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

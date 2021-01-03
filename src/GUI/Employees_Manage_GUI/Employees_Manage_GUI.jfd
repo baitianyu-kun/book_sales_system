@@ -1,0 +1,54 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :::p, comp scrollPane1::::961:x}, seq {par l {seq {space :p:393:p, comp label1:::p::p}, seq l {space :::p, comp label2:::p::p, space u:::p, comp emploee_man_comb:::p:122:p, space :::p, comp emploee_man_tf:::p:322:p, space :::p, comp emploee_man_btn:::p::p, space :::p, comp emploee_man_add_btn:::p::p, space :::p, comp emploee_man_del_btn:::p::p}}, space :0:27:x}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space u:::p, comp label1:::p::p, space u:::p, par b {comp label2::b:p::p, comp emploee_man_comb::b:p::p, comp emploee_man_tf::b:p::p, comp emploee_man_btn::b:p::p, comp emploee_man_add_btn::b:p::p, comp emploee_man_del_btn::b:p::p}, space ::14:x, comp scrollPane1:::p:392:p, space :p:7:p}}"
+		} ) {
+			name: "this"
+			addEvent( new FormEvent( "java.awt.event.WindowFocusListener", "windowGainedFocus", "thisWindowGainedFocus", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "员工信息管理"
+				"font": new java.awt.Font( "Dialog", 0, 26 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "请选择查询条件："
+				"font": new java.awt.Font( "Dialog", 0, 20 )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "emploee_man_comb"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emploee_man_tf"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "emploee_man_btn"
+				"text": "查询"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "emploee_man_btnActionPerformed", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "emploee_man_table"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "emploee_man_add_btn"
+				"text": "添加"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "emploee_man_add_btnActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "emploee_man_del_btn"
+				"text": "删除"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "emploee_man_del_btnActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 975, 545 )
+		} )
+	}
+}

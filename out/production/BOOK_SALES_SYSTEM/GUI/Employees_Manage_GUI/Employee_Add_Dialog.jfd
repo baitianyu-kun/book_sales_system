@@ -1,0 +1,73 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.7-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:41:p, par l {seq {par l:::p {seq {par l {comp label1::l:p::p, comp label2::l:p::p, comp label3::l:p::p, comp label4::l:p::p, comp label5::l:p::p}, space :::p, par l:::p {comp emplo_add_name::::305:x, comp emplo_add_sex::::305:x, comp emplo_add_job::::305:x, comp emplo_add_identity::::305:x, comp emplo_add_phone::::305:x}}, seq l {comp label6:::p::p, space :::p, comp emplo_add_certifi_ID::::305:x}}, space ::46:x}, seq l {space :p:15:p, par l {seq {comp label7:::p::p, space ::145:x}, seq {comp emplo_add_add_btn:::::x, space s:::p, comp emplo_add_cancel_btn:::::x, space :p:39:p}}}}}}"
+			"$verticalGroup": "par l {seq l {space :p:33:p, par b {comp label1::b:p::p, comp emplo_add_name::b:p::p}, space :::p, par b {comp label2::b:p::p, comp emplo_add_sex::b:p::p}, space :::p, par b {comp label3::b:p::p, comp emplo_add_job::b:p::p}, space :::p, par b {comp label4::b:p::p, comp emplo_add_identity::b:p::p}, space :::p, par b {comp label5::b:p::p, comp emplo_add_phone::b:p::p}, space :::p, par b {comp label6::b:p::p, comp emplo_add_certifi_ID::b:p::p}, space s:::p, comp label7:::p::p, space :::p, par b {comp emplo_add_cancel_btn::b:p::p, comp emplo_add_add_btn::b:p::p}, space ::15:x}}"
+		} ) {
+			name: "this"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "员工姓名："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emplo_add_name"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "性别："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emplo_add_sex"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "职位："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emplo_add_job"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "身份："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emplo_add_identity"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "手机号："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emplo_add_phone"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "身份证号："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emplo_add_certifi_ID"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "emplo_add_add_btn"
+				"text": "添加"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "emplo_add_add_btnActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "emplo_add_cancel_btn"
+				"text": "取消"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "emplo_add_cancel_btnActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "*身份只有“admin”和“ordinary”"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 470, 185 )
+			"size": new java.awt.Dimension( 485, 435 )
+		} )
+	}
+}
