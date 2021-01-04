@@ -32,14 +32,14 @@ public class User_Manage_GUI extends JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(button1)
-                    .addContainerGap(374, Short.MAX_VALUE))
+                    .addContainerGap(312, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(56, 56, 56)
                     .addComponent(button1)
-                    .addContainerGap(231, Short.MAX_VALUE))
+                    .addContainerGap(225, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());

@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:49:p, comp button1:::p::p, space ::374:x}}"
-			"$verticalGroup": "par l {seq l {space :p:56:p, comp button1:::p::p, space ::231:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:49:p, comp button1:::p::p, space ::312:x}}"
+			"$verticalGroup": "par l {seq l {space :p:56:p, comp button1:::p::p, space ::225:x}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -13,7 +13,7 @@ new FormModel {
 				"text": "密码重置"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 475, 100 )
+			"location": new java.awt.Point( 135, 100 )
 			"size": new java.awt.Dimension( 475, 355 )
 		} )
 	}
