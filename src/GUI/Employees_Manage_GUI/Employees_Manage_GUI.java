@@ -28,8 +28,8 @@ public class Employees_Manage_GUI extends JFrame {
     public void Table_init(String condition,String value)
     {
         emploee_man_table.setModel(new Employee_Manage_Table_Model(employee_manage_ser.Employee_Search_Ser(new Employee_Search_Info(condition,value))));
-        emploee_man_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
-        emploee_man_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
+        //emploee_man_table.getTableHeader().setResizingAllowed(false);//设置不可拉动表格
+        //emploee_man_table.getTableHeader().setReorderingAllowed(false);//设置不可移动列
     }
     public void Combox_init()
     {

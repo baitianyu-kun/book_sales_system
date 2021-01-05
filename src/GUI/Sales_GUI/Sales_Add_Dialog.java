@@ -65,6 +65,7 @@ public class Sales_Add_Dialog extends JDialog {
         Table_init(sale_add_name_tf.getText());
     }
     private void thisWindowClosing(WindowEvent e) {
+
         this.getOwner().setEnabled(true);
         this.dispose();
 
